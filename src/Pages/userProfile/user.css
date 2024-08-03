@@ -1,0 +1,41 @@
+.userImage{
+    display: flex;
+    position: relative;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size:cover;
+    object-fit: fill;
+}
+
+.userImage div{  
+    overflow: hidden;
+    background-color: rgb(78, 77, 75);
+    position: absolute;
+    bottom:-20%;
+    left:15%;
+  
+}
+
+.userImage img{
+    object-fit:cover;
+    
+}
+
+.postImg img{
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 calc(35%-200%); /* Adjust the percentage to fit the desired number of images in a row */
+    box-sizing: border-box;
+    object-fit: fill; 
+}
+
+@media screen and (max-width: 562px) {
+    
+        .userImage{
+            height: 30vh;
+            bottom:-20%;
+            left:8%;
+          
+        }
+   
+  }
