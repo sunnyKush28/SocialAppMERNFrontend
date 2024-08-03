@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 export const GlobalState = createContext();
 
@@ -12,6 +11,7 @@ export const AuthProvider = ({ children }) => {
     const [posts, setPosts] = useState([]);
     const [allPost, setAllPost] = useState([])
 
+    axios.defaults.baseURL = 'https://socialappmernbackend-1.onrender.com/'
 
     const fetchProfile = async () => {
         try {
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
     const refreshToken = async () => {
         try {
-            const res = await axios.post('/api/v1/user/refreshtoken', {}, { withCredentials: true });
+            const res = await axios.post('/api/v1/user/refreshtoken', { token }, { withCredentials: true });
             const newToken = res.data.token.refreshToken;
 
             setToken(newToken);
@@ -59,7 +59,6 @@ export const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-
         const firstLogin = localStorage.getItem("firstlogin");
         if (firstLogin) {
 

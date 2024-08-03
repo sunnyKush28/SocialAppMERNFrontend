@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { GlobalState } from '../store/GlobalStore';
@@ -33,6 +33,7 @@ const Login = () => {
             navigate("/");
 
         } catch (error) {
+            console.log(error);
             alert(error.response.data.message);
         }
     };
@@ -44,7 +45,9 @@ const Login = () => {
         })
     }
 
+    useEffect(() => {
 
+    }, [token])
 
     return (
         <div className='container-fluid loginBg' >
