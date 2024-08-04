@@ -45,9 +45,7 @@ const Login = () => {
         })
     }
 
-    useEffect(() => {
 
-    }, [token])
 
     return (
         <div className='container-fluid loginBg' >

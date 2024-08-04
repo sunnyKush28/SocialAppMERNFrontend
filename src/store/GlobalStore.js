@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
     const refreshToken = async () => {
         try {
-            const res = await axios.post('/api/v1/user/refreshtoken', { token }, { withCredentials: true });
+            const res = await axios.post('/api/v1/user/refreshtoken', {}, { withCredentials: true });
             const newToken = res.data.token.refreshToken;
 
             setToken(newToken);
